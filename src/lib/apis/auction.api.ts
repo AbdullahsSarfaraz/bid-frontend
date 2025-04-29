@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; 
+export const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; 
 export class AuctionService {
   static async createAuction(data: { title: string; endTime: string }) {
     const response = await axios.post(`${API_BASE_URL}/auctions`, data);

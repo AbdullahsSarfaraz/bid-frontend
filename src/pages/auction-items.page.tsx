@@ -2,7 +2,7 @@
 
 import { useParams, useNavigate, useLocation } from 'react-router'; 
 import { useQuery } from '@tanstack/react-query';
-import { AuctionService } from '@/lib/apis/auction.api';
+import { API_BASE_URL, AuctionService } from '@/lib/apis/auction.api';
 import { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'; 
 import { Button } from '@/components/ui/button';
@@ -51,7 +51,7 @@ export default function AuctionItems() {
       setUserIds(initialUserIds);
     }
 
-    const socketConnection = io('http://localhost:5000'); 
+    const socketConnection = io(API_BASE_URL); 
     setSocket(socketConnection);
 
     socketConnection.on('bidPlaced', (data) => {
